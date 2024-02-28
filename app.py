@@ -13,7 +13,7 @@ import dash_datetimepicker as ddtp
 import smtplib                          
 from email.message import EmailMessage
 import dash_auth
-
+import base64
 
 load_figure_template("FLATLY")   
 
@@ -50,19 +50,35 @@ df.sort_values(by=['Dia', 'Hora'])
 
 valor_padrao_inicio = df['Dia'].min().strftime('%d/%m/%Y')
 valor_padrao_fim = df['Dia'].max().strftime('%d/%m/%Y')
+def image_url_to_base64(image_url):
+    response = requests.get(image_url)
+    if response.status_code == 200:
+        base64_data = base64.b64encode(response.content).decode('utf-8')
+        return f"data:image/png;base64,{base64_data}"
+    else:
+        return None
+        
+# URLs das imagens no GitHub
+logo_unb_url = "https://github.com/vfeijo00/vini/tree/main/asset/logo_unb.png"
+logo_incra_url = "https://github.com/vfeijo00/vini/tree/main/assets/logo_incra_negativa.png"
 
+# Convertendo as imagens em base64
+base64_logo_unb = image_url_to_base64(logo_unb_url)
+base64_logo_incra = image_url_to_base64(logo_incra_url)
+
+# Layout Dash
 app.layout = dbc.Container(children=[
     dbc.Row([
         dbc.Col([
             dbc.Row([
                 dbc.Col([
-                    html.Img(src=app.get_asset_url('logo_unb.png'),
+                    html.Img(src=base64_logo_unb,
                             style={'textAlign': 'left','position': 'absolute', 'top': '15px', 'left': '20px', 'width': '15%'}),
                 ], xs=2, sm=2, md=2, lg=2),
                 dbc.Col([
-                    html.Img(src=app.get_asset_url('logo_incra_negativa.png'),
+                    html.Img(src=base64_logo_incra,
                             style={'position': 'absolute','top': '15px','width': '15%'}),
-                ], xs=2, sm=2, md=2, lg=2),
+                ], xs=2, sm=2, md=2, lg=2),,
                 dbc.Col([
                     html.H1('Dashboard de Monitoramento Estrutural',
                             style={'textAlign': 'center', 'font-family': 'cambria', 'font-size': '35px',
