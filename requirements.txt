@@ -11,3 +11,4 @@ plotly==5.14.1
 dash-auth==1.4.1
 dash-datetimepicker==0.0.5
 requests==2.31.0
+talisman==0.1.0
