@@ -15,6 +15,7 @@ from email.message import EmailMessage
 import dash_auth
 import base64
 import requests
+from talisman import Talisman
 
 load_figure_template("FLATLY")   
 
@@ -36,7 +37,7 @@ def send_alert(subject, body, to):
 
 app = dash.Dash(external_stylesheets=[dbc.themes.FLATLY])
 server = app.server
-
+Talisman(server, content_security_policy=None)
 auth=dash_auth.BasicAuth(app, 
                          {'incra':'unb2024'})
 
@@ -60,7 +61,7 @@ def image_url_to_base64(image_url):
         return None
         
 # URLs das imagens no GitHub
-logo_unb_url = "https://github.com/vfeijo00/vini/tree/main/asset/logo_unb.png"
+logo_unb_url = "https://github.com/vfeijo00/vini/tree/main/assets/logo_unb.png"
 logo_incra_url = "https://github.com/vfeijo00/vini/tree/main/assets/logo_incra_negativa.png"
 
 # Convertendo as imagens em base64
