@@ -37,7 +37,8 @@ def send_alert(subject, body, to):
 
 app = dash.Dash(external_stylesheets=[dbc.themes.FLATLY])
 server = app.server
-Talisman(server, content_security_policy=None)
+
+Talisman(server, content_security_policy=False)
 auth=dash_auth.BasicAuth(app, 
                          {'incra':'unb2024'})
 
