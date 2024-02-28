@@ -14,6 +14,7 @@ import smtplib
 from email.message import EmailMessage
 import dash_auth
 import base64
+import requests
 
 load_figure_template("FLATLY")   
 
