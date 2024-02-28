@@ -65,10 +65,10 @@ app.layout = dbc.Container(children=[
                 ], width={"size": 2, "order": "second"} ),
                 dbc.Col([
                     html.H1('Dashboard de Monitoramento Estrutural',
-                            style={'textAlign': 'center', 'font-family': 'cambria', 'font-size': '50px',
+                            style={'textAlign': 'center', 'font-family': 'cambria', 'font-size': '35px',
                                    'margin-top': '10px', 'color': 'white'}),
-                    html.H2('Prédio do Incra - Endereço xxxx',
-                            style={'textAlign': 'center', 'font-family': 'cambria', 'font-size': '30px',
+                    html.H2('SBN QD 01 Bloco D - Edifício Palácio do Desenvolvimento - Asa Norte, Brasília - DF ',
+                            style={'textAlign': 'center', 'font-family': 'cambria', 'font-size': '20px',
                                    'margin-top': '10px', 'color': 'white'})
                 ], width=6),
                 dbc.Col([], width=3)
