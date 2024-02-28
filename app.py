@@ -78,7 +78,7 @@ app.layout = dbc.Container(children=[
                 dbc.Col([
                     html.Img(src=base64_logo_incra,
                             style={'position': 'absolute','top': '15px','width': '15%'}),
-                ], xs=2, sm=2, md=2, lg=2),,
+                ], xs=2, sm=2, md=2, lg=2),
                 dbc.Col([
                     html.H1('Dashboard de Monitoramento Estrutural',
                             style={'textAlign': 'center', 'font-family': 'cambria', 'font-size': '35px',
