@@ -57,23 +57,23 @@ app.layout = dbc.Container(children=[
             dbc.Row([
                 dbc.Col([
                     html.Img(src=app.get_asset_url('logo_unb.png'),
-                            style={'position': 'absolute', 'top': '15px', 'left': '20px', 'width': '10%'}),
-                ],  width={"size": 1, "order": "first"}),
+                            style={'textAlign': 'left','position': 'absolute', 'top': '15px', 'left': '20px', 'width': '15%'}),
+                ], xs=2, sm=2, md=2, lg=2),
                 dbc.Col([
                     html.Img(src=app.get_asset_url('logo_incra_negativa.png'),
-                            style={'position': 'absolute', 'top': '40px', 'left':'230px','width': '10%'}),
-                ], width={"size": 2, "order": "second"} ),
+                            style={'position': 'absolute','top': '15px','width': '15%'}),
+                ], xs=2, sm=2, md=2, lg=2),
                 dbc.Col([
                     html.H1('Dashboard de Monitoramento Estrutural',
                             style={'textAlign': 'center', 'font-family': 'cambria', 'font-size': '35px',
-                                   'margin-top': '10px', 'color': 'white'}),
+                                   'margin': 'auto', 'color': 'white', 'display': 'flex', 'justify-content': 'center',
+                                   'align-items': 'flex-end','height':'50%'}),
                     html.H2('SBN QD 01 Bloco D - Edifício Palácio do Desenvolvimento - Asa Norte, Brasília - DF ',
-                            style={'textAlign': 'center', 'font-family': 'cambria', 'font-size': '20px',
-                                   'margin-top': '10px', 'color': 'white'})
-                ], width=6),
-                dbc.Col([], width=3)
+                            style={'textAlign': 'center', 'font-family': 'cambria', 'font-size': '20px', 'color': 'white','height':'40%'})
+                ], xs=8, sm=8, md=6, lg=6),
+                dbc.Col(sm=0, md=2, lg=2)
 
-            ], style={'background-color': '#2C3E50','height': '13vh'}),
+            ], style={'background-color': '#2C3E50','height': '20vh'}),
             html.Hr(),
             dbc.Row([
                 dbc.Col([
@@ -89,14 +89,14 @@ app.layout = dbc.Container(children=[
                                             style={'margin-right':'5px', 'font-family': 'cambria', 'font-size': '15px', 'textAlign': 'right'}),
                                             html.H3('Data Final',
                                             style={'padding-top':'2px','margin-right':'5px','font-family': 'cambria', 'font-size': '15px', 'textAlign': 'right'})
-                                        ], width=4, className="g-0"),
+                                        ],xs=2, sm=2, md=4, lg=4),
                                         dbc.Col([
                                             dcc.Input(id='datetime-range', type='text', value=valor_padrao_inicio,
                                                     placeholder="DD/MM/YYYY", className="mx-auto"),
                                             dcc.Input(id='datetime-range-end', type='text', value=valor_padrao_fim,
                                                     placeholder="DD/MM/YYYY", className="mx-auto"),
-                                        ], width=4, className="g-0"),
-                                        dbc.Col([], width = 4, className="g-0")
+                                        ],xs=10, sm=10, md=4, lg=4),
+                                        dbc.Col([],xs=0, sm=0, md=4, lg=4)
                                     ], style={'align-items': 'center'}),
                                     dbc.Button('Atualizar Gráfico',
                                                id='update-button',
@@ -119,14 +119,14 @@ app.layout = dbc.Container(children=[
                                               type="number",
                                               value=12,
                                               placeholder="Valor Máximo de Aceleração em Z",
-                                              style={'margin-left':'115px','border-radius': '5px', 'textAlign': 'center'}),
-                                ])
+                                              style={'margin': 'auto', 'border-radius': '5px', 'textAlign': 'center', 'width': '50%'}),
+                                ], sm=12, md=12, lg=12, align='center')
                             ])
                         ], style={'background-color': 'gray', 'height': '80vh', 'border_color': 'gray'})
                     ]),
                     html.P('Lenildo Santos - Contato: lenildo@unb.br', style={'margin':'1px'}),
                     html.P('Vinícius Feijó - Contato: viniciusfeijo360@gmail.com', style={'margin':'1px'}),
-                ], sm=3, md=3),
+                ], sm=12, md=3),
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
@@ -144,7 +144,7 @@ app.layout = dbc.Container(children=[
 
                         ], style={'background-color': 'gray', 'height': '155vh', 'border_color': 'gray'})
                     ])
-                ], sm=9, md=9)
+                ], sm=12, md=9)
             ], style={'height': '160vh'})
         ])
     ], style={'background-color': 'rgba(180, 197, 214, 0.5)'})
