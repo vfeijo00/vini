@@ -15,7 +15,6 @@ from email.message import EmailMessage
 import dash_auth
 import base64
 import requests
-from talisman import Talisman
 
 load_figure_template("FLATLY")   
 
@@ -38,7 +37,6 @@ def send_alert(subject, body, to):
 app = dash.Dash(external_stylesheets=[dbc.themes.FLATLY])
 server = app.server
 
-Talisman(server, content_security_policy=False)
 auth=dash_auth.BasicAuth(app, 
                          {'incra':'unb2024'})
 
